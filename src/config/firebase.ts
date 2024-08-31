@@ -1,19 +1,30 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore/lite";
 import { getStorage } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// const firebaseConfig = {
+// 	apiKey: "AIzaSyBjvAX6gBLrmF-13TobFOYTAb81F-oyCnU",
+// 	authDomain: "date-rate-f54ef.firebaseapp.com",
+// 	projectId: "date-rate-f54ef",
+// 	storageBucket: "date-rate-f54ef.appspot.com",
+// 	messagingSenderId: "273808888996",
+// 	appId: "1:273808888996:web:9c33f96f923199aca48231",
+// };
+
 const firebaseConfig = {
-	apiKey: "AIzaSyBjvAX6gBLrmF-13TobFOYTAb81F-oyCnU",
-	authDomain: "date-rate-f54ef.firebaseapp.com",
-	projectId: "date-rate-f54ef",
-	storageBucket: "date-rate-f54ef.appspot.com",
-	messagingSenderId: "273808888996",
-	appId: "1:273808888996:web:9c33f96f923199aca48231",
+	apiKey: import.meta.env.VITE_API_KEY,
+	authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+	projectId: import.meta.env.VITE_PROJECT_ID,
+	storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+	messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+	appId: import.meta.env.VITE_APP_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
+export const firestore = getFirestore(app);
